@@ -1,7 +1,7 @@
 plugins {
     id 'com.android.application'
     id("androidx.navigation.safeargs")
-
+    id 'dagger.hilt.android.plugin'
 }
 
 android {
@@ -49,6 +49,9 @@ dependencies { dependencies ->
     //Android ViewModel
     androidViewModel(dependencies)
 
+    //Android DI
+    androidDI(dependencies)
+
 }
 
 private static void androidCore(dependencies){
@@ -80,7 +83,7 @@ private static void androidNetwork(dependencies){
 }
 
 private static void androidRX(dependencies){
-    dependencies.implementation 'io.reactivex.rxjava3:rxjava:2.2.21'
+    dependencies.implementation 'io.reactivex.rxjava2:rxjava:2.2.21'
 }
 
 private static void androidViewModel(dependencies){
@@ -88,4 +91,11 @@ private static void androidViewModel(dependencies){
     dependencies.implementation("androidx.lifecycle:lifecycle-livedata:2.5.0-alpha01")
     dependencies.implementation("androidx.lifecycle:lifecycle-reactivestreams:2.5.0-alpha01")
     dependencies.testImplementation("androidx.arch.core:core-testing:2.1.0")
+}
+
+private static void androidDI(dependencies){
+    dependencies.implementation 'com.google.dagger:hilt-android:2.38.1'
+    dependencies.annotationProcessor 'com.google.dagger:hilt-compiler:2.38.1'
+    dependencies.testImplementation 'com.google.dagger:hilt-android-testing:2.38.1'
+    dependencies.testAnnotationProcessor 'com.google.dagger:hilt-compiler:2.38.1'
 }
