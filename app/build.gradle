@@ -29,33 +29,34 @@ android {
     }
 }
 
-dependencies { dependencies ->
+dependencies { dependency ->
 
     //Android Core
-    androidCore(dependencies)
+    androidCore(dependency)
 
     //Android UI
-    androidUI(dependencies)
+    androidUI(dependency)
 
     //Android Testing
-    androidTesting(dependencies)
+    androidTesting(dependency)
 
     //Android Network
-    androidNetwork(dependencies)
+    androidNetwork(dependency)
 
     //Android Reactive
-    androidRX(dependencies)
+    androidRX(dependency)
 
     //Android ViewModel
-    androidViewModel(dependencies)
+    androidViewModel(dependency)
 
     //Android DI
-    androidDI(dependencies)
+    androidDI(dependency)
 
 }
 
 private static void androidCore(dependencies){
     dependencies.implementation 'androidx.appcompat:appcompat:1.4.1'
+    dependencies.implementation 'androidx.legacy:legacy-support-v4:1.0.0'
 }
 
 private static void androidUI(dependencies){
@@ -79,8 +80,8 @@ private static void androidNetwork(dependencies){
     dependencies.implementation 'com.squareup.retrofit2:retrofit:2.9.0'
     dependencies.implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
     dependencies.implementation 'com.squareup.retrofit2:adapter-rxjava:2.9.0'
-    dependencies.implementation("com.squareup.okhttp3:okhttp")
-    dependencies.implementation("com.squareup.okhttp3:logging-interceptor")
+    dependencies.implementation("com.squareup.okhttp3:okhttp:4.9.3")
+    dependencies.implementation("com.squareup.okhttp3:logging-interceptor:4.9.3")
 }
 
 private static void androidRX(dependencies){
@@ -88,9 +89,10 @@ private static void androidRX(dependencies){
 }
 
 private static void androidViewModel(dependencies){
-    dependencies.implementation("androidx.lifecycle:lifecycle-viewmodel:2.5.0-alpha01")
-    dependencies.implementation("androidx.lifecycle:lifecycle-livedata:2.5.0-alpha01")
-    dependencies.implementation("androidx.lifecycle:lifecycle-reactivestreams:2.5.0-alpha01")
+    dependencies.implementation("androidx.lifecycle:lifecycle-viewmodel:2.4.0")
+    dependencies.implementation("androidx.lifecycle:lifecycle-livedata:2.4.0")
+    dependencies.implementation("androidx.lifecycle:lifecycle-reactivestreams:2.4.0")
+    dependencies.implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.0'
     dependencies.testImplementation("androidx.arch.core:core-testing:2.1.0")
 }
 
