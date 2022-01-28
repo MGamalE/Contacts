@@ -46,6 +46,9 @@ dependencies { dependencies ->
     //Android Reactive
     androidRX(dependencies)
 
+    //Android ViewModel
+    androidViewModel(dependencies)
+
 }
 
 private static void androidCore(dependencies){
@@ -78,4 +81,11 @@ private static void androidNetwork(dependencies){
 
 private static void androidRX(dependencies){
     dependencies.implementation 'io.reactivex.rxjava3:rxjava:2.2.21'
+}
+
+private static void androidViewModel(dependencies){
+    dependencies.implementation("androidx.lifecycle:lifecycle-viewmodel:2.5.0-alpha01")
+    dependencies.implementation("androidx.lifecycle:lifecycle-livedata:2.5.0-alpha01")
+    dependencies.implementation("androidx.lifecycle:lifecycle-reactivestreams:2.5.0-alpha01")
+    dependencies.testImplementation("androidx.arch.core:core-testing:2.1.0")
 }
