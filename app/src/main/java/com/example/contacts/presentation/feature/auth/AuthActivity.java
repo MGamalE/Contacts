@@ -5,7 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.example.contacts.R;
-import com.example.contacts.domain.gateway.persistence.MySharedPreference;
+import com.example.contacts.domain.gateway.persistence.SharedPreference;
 import com.example.contacts.presentation.core.Constant;
 
 import java.io.InputStream;
@@ -19,7 +19,7 @@ import dagger.hilt.android.AndroidEntryPoint;
 public class AuthActivity extends AppCompatActivity {
 
     @Inject
-    MySharedPreference sharedPreference;
+    SharedPreference sharedPreference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

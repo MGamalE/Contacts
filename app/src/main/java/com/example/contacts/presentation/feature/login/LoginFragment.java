@@ -12,25 +12,17 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.contacts.R;
-import com.example.contacts.domain.gateway.persistence.MySharedPreference;
-
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.Properties;
+import com.example.contacts.domain.gateway.persistence.SharedPreference;
 
 import javax.inject.Inject;
 
 import dagger.hilt.android.AndroidEntryPoint;
-import io.reactivex.Flowable;
-import io.reactivex.Observable;
 
 @AndroidEntryPoint
 public class LoginFragment extends Fragment {
 
     @Inject
-    MySharedPreference sharedPreference;
+    SharedPreference sharedPreference;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {

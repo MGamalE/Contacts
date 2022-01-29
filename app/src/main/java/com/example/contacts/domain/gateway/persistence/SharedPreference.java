@@ -4,12 +4,12 @@ import android.content.SharedPreferences;
 
 import com.example.contacts.domain.core.Constant;
 
-public class MySharedPreference {
+public class SharedPreference {
 
     private SharedPreferences sharedPreference;
 
 
-    public MySharedPreference(SharedPreferences mySharedPref) {
+    public SharedPreference(SharedPreferences mySharedPref) {
         this.sharedPreference = mySharedPref;
     }
 
