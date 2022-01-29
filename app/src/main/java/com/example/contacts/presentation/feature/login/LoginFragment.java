@@ -14,9 +14,17 @@ import android.view.ViewGroup;
 import com.example.contacts.R;
 import com.example.contacts.domain.gateway.persistence.MySharedPreference;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.Properties;
+
 import javax.inject.Inject;
 
 import dagger.hilt.android.AndroidEntryPoint;
+import io.reactivex.Flowable;
+import io.reactivex.Observable;
 
 @AndroidEntryPoint
 public class LoginFragment extends Fragment {
@@ -36,4 +44,11 @@ public class LoginFragment extends Fragment {
         return inflater.inflate(R.layout.fragment_login, container, false);
     }
 
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        Log.e("sharedPreference","ID "+sharedPreference.getUserId());
+        Log.e("sharedPreference","Pass "+sharedPreference.getUserPassword());
+
+    }
 }
