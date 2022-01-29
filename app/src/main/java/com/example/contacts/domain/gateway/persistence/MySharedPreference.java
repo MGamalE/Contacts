@@ -8,7 +8,8 @@ public class MySharedPreference {
 
     private SharedPreferences sharedPreference;
 
-    public void SharedPreference(SharedPreferences mySharedPref) {
+
+    public MySharedPreference(SharedPreferences mySharedPref) {
         this.sharedPreference = mySharedPref;
     }
 

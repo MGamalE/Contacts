@@ -6,6 +6,9 @@ import android.os.Bundle;
 
 import com.example.contacts.R;
 
+import dagger.hilt.android.AndroidEntryPoint;
+
+@AndroidEntryPoint
 public class AuthActivity extends AppCompatActivity {
 
     @Override
