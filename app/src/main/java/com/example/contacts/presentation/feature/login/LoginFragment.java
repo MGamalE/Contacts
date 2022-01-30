@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 
 import com.example.contacts.R;
 import com.example.contacts.domain.gateway.persistence.SharedPreference;
+import com.example.contacts.domain.usecase.FileIOUseCase;
 
 import javax.inject.Inject;
 
@@ -22,7 +23,7 @@ import dagger.hilt.android.AndroidEntryPoint;
 public class LoginFragment extends Fragment {
 
     @Inject
-    SharedPreference sharedPreference;
+    FileIOUseCase useCase;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -39,8 +40,8 @@ public class LoginFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        Log.e("sharedPreference","ID "+sharedPreference.getUserId());
-        Log.e("sharedPreference","Pass "+sharedPreference.getUserPassword());
+        Log.e("sharedPreference","ID "+useCase.retrieveUserId());
+        Log.e("sharedPreference","Pass "+useCase.retrieveUserPassword());
 
     }
 }

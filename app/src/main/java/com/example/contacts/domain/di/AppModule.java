@@ -6,6 +6,10 @@ import android.content.SharedPreferences;
 import com.example.contacts.domain.core.Constant;
 import com.example.contacts.domain.gateway.persistence.FileIO;
 import com.example.contacts.domain.gateway.persistence.SharedPreference;
+import com.example.contacts.domain.repository.FileIORepository;
+import com.example.contacts.domain.repository.FileIORepositoryImpl;
+import com.example.contacts.domain.usecase.FileIOUseCase;
+import com.example.contacts.domain.usecase.FileIOUseCaseImpl;
 import com.example.contacts.presentation.core.App;
 
 import java.io.InputStream;
@@ -43,11 +47,11 @@ public abstract class AppModule {
 
     @Singleton
     @Provides
-    public static InputStream provideInput(App myApplication) {
+    public static InputStream provideInput(@ApplicationContext Context context) {
         try {
-            return myApplication.getAssets().open(com.example.contacts.presentation.core.Constant.FILE_PATH);
+            return context.getAssets().open(com.example.contacts.presentation.core.Constant.FILE_PATH);
         } catch (Exception e) {
-            myApplication.getAssets().close();
+            context.getAssets().close();
             e.printStackTrace();
             throw new RuntimeException("File Not Found Exception");
         }
@@ -63,5 +67,15 @@ public abstract class AppModule {
     @Provides
     public static FileIO provideFileIO(InputStream inputStream,Properties properties) {
         return new FileIO(inputStream,properties);
+    }
+
+    @Provides
+    public static FileIORepository provideFileIORepository(FileIO fileIO, SharedPreference sharedPreference) {
+        return new FileIORepositoryImpl(fileIO,sharedPreference);
+    }
+
+    @Provides
+    public static FileIOUseCase provideFileIOUseCase(FileIORepositoryImpl repository) {
+        return new FileIOUseCaseImpl(repository);
     }
 }
