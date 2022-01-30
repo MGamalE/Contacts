@@ -49,7 +49,7 @@ public abstract class AppModule {
     @Provides
     public static InputStream provideInput(@ApplicationContext Context context) {
         try {
-            return context.getAssets().open(com.example.contacts.presentation.core.Constant.FILE_PATH);
+            return context.getAssets().open(Constant.FILE_PATH);
         } catch (Exception e) {
             context.getAssets().close();
             e.printStackTrace();

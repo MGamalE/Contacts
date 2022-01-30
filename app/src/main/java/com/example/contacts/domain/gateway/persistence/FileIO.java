@@ -1,7 +1,8 @@
 package com.example.contacts.domain.gateway.persistence;
 
 
-import com.example.contacts.presentation.core.Constant;
+
+import com.example.contacts.domain.core.Constant;
 
 import java.io.IOException;
 import java.io.InputStream;
