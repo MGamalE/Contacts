@@ -8,4 +8,8 @@ public class Constant {
     public static String FILE_PATH = "credential.properties";
     public static String FILE_USER_ID = "userId";
     public static String FILE_USER_PASSWORD = "userPassword";
+
+    public static String BASE_URL = "https://app.onepagecrm.com/api/";
+    public static String AUTHORIZATION = "Authorization";
+
 }

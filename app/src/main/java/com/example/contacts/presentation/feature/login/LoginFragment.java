@@ -6,6 +6,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.Navigation;
 
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -15,6 +16,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import com.example.contacts.R;
 import com.example.contacts.databinding.FragmentLoginBinding;
 import com.example.contacts.domain.usecase.FileIOUseCase;
 
@@ -158,6 +160,7 @@ public class LoginFragment extends Fragment {
              * If the user credentials data valid, then do login to next screen
              */
             if (loginValidation.isValid()) {
+                Navigation.findNavController(binding.getRoot()).navigate(R.id.action_loginFragment_to_contactsMainActivity2);
                 Toast.makeText(getActivity(), "Success", Toast.LENGTH_SHORT).show();
             }
             /**

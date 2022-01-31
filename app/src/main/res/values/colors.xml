@@ -13,6 +13,7 @@
     <color name="item_sub_main">#F2923E</color>
 
     <color name="item_white">#F0F0F0</color>
+    <color name="item_white_off">#D6D6D6</color>
     <color name="item_red">#DD585B</color>
     <color name="item_hint">#808080</color>
     <color name="item_ripple">#808080</color>
