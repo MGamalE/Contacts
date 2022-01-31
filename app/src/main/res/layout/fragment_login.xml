@@ -24,6 +24,7 @@
         android:fontFamily="@font/proximalight"
         android:textColor="@color/item_red"
         android:textSize="12sp"
+        android:visibility="gone"
         app:layout_constraintBottom_toTopOf="@id/userVg"
         app:layout_constraintStart_toStartOf="@+id/userVg"
         tools:text="@string/error_user_input_hint" />
@@ -88,6 +89,7 @@
         android:fontFamily="@font/proximalight"
         android:textColor="@color/item_red"
         android:textSize="12sp"
+        android:visibility="gone"
         app:layout_constraintBottom_toTopOf="@id/passwordVg"
         app:layout_constraintStart_toStartOf="@+id/passwordVg"
         tools:text="@string/error_password_input_hint" />
@@ -161,6 +163,7 @@
         android:textStyle="bold"
         android:theme="@style/Theme.MaterialComponents.Light"
         app:cornerRadius="4dp"
+        android:id="@+id/btLogin"
         app:rippleColor="@color/item_ripple"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

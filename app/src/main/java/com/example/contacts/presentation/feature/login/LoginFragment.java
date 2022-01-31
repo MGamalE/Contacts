@@ -5,6 +5,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import android.util.Log;
@@ -49,7 +50,20 @@ public class LoginFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        fireLogin();
+
         initializeLoginViewModel();
+
+        initializeUserIdObserver();
+
+        initializeUserPasswordObserver();
+
+    }
+
+    private void fireLogin() {
+        binding.btLogin.setOnClickListener(v -> {
+
+        });
     }
 
     /**
@@ -57,6 +71,24 @@ public class LoginFragment extends Fragment {
      */
     private void initializeLoginViewModel() {
         loginViewModel=new ViewModelProvider(this).get(LoginViewModel.class);
+    }
+
+    /**
+     * Listen to retrieved user id value
+     */
+    private void initializeUserIdObserver() {
+        loginViewModel.getUserId().observe(getViewLifecycleOwner(), userId -> {
+            binding.etUserInput.setText(userId);
+        });
+    }
+
+    /**
+     * Listen to retrieved user password value
+     */
+    private void initializeUserPasswordObserver() {
+        loginViewModel.getUserPassword().observe(getViewLifecycleOwner(), userPassword -> {
+            binding.etPasswordInput.setText(userPassword);
+        });
     }
 
     @Override
