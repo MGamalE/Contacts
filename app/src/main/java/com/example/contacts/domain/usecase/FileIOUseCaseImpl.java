@@ -10,22 +10,30 @@ import java.io.IOException;
  * the business rules between data sources gateway
  * {@FilIO},{@SharedPreference} and presentation layer {@ViewModel}
  */
-public class FileIOUseCaseImpl implements FileIOUseCase{
+public class FileIOUseCaseImpl implements FileIOUseCase {
 
     private FileIORepository repository;
 
-    public FileIOUseCaseImpl(FileIORepositoryImpl fileIORepository){
-        this.repository=fileIORepository;
+    public FileIOUseCaseImpl(FileIORepositoryImpl fileIORepository) {
+        this.repository = fileIORepository;
     }
 
     @Override
-    public void saveUserId() throws IOException {
-        repository.saveUserIdToPreference();
+    public void saveUserId() {
+        try {
+            repository.saveUserIdToPreference();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
-    public void saveUserPassword() throws IOException {
-        repository.saveUserPasswordToPreference();
+    public void saveUserPassword() {
+        try {
+            repository.saveUserPasswordToPreference();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @Override

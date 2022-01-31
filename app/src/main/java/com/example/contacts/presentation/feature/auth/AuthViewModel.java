@@ -15,23 +15,15 @@ public class AuthViewModel extends ViewModel {
     FileIOUseCase useCase;
 
     @Inject
-    public AuthViewModel(){
+    public AuthViewModel() {
 
     }
 
     public void loadUserIdCredential() {
-        try {
-            useCase.saveUserId();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        useCase.saveUserId();
     }
 
     public void loadUserPasswordCredential() {
-        try {
-            useCase.saveUserPassword();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        useCase.saveUserPassword();
     }
 }
