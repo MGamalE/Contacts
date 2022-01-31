@@ -5,6 +5,7 @@ import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 import com.example.contacts.domain.usecase.FileIOUseCase;
+import com.example.contacts.entity.login.LoginValidation;
 
 import javax.inject.Inject;
 
@@ -20,10 +21,13 @@ public class LoginViewModel extends ViewModel {
 
     private MutableLiveData<String> _userPassword;
 
+    private MutableLiveData<LoginValidation> _userLoginValidation;
+
     @Inject
     public LoginViewModel() {
         _userId = new MutableLiveData<>();
         _userPassword = new MutableLiveData<>();
+        _userLoginValidation = new MutableLiveData<>();
     }
 
     private void retrieveUserId() {
@@ -44,8 +48,11 @@ public class LoginViewModel extends ViewModel {
         return _userPassword;
     }
 
-    public void requestLogin(String userId, String userPassword){
-
+    public void requestLogin(String userId, String userPassword) {
+        _userLoginValidation.postValue(useCase.requestLogin(userId, userPassword));
     }
 
+    public LiveData<LoginValidation> isUserCredentialsValid() {
+        return _userLoginValidation;
+    }
 }

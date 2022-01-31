@@ -1,6 +1,6 @@
 package com.example.contacts.domain.usecase;
 
-import java.io.IOException;
+import com.example.contacts.entity.login.LoginValidation;
 
 public interface FileIOUseCase {
     void saveUserId();
@@ -10,4 +10,6 @@ public interface FileIOUseCase {
     String retrieveUserId();
 
     String retrieveUserPassword();
+
+    LoginValidation requestLogin(String userId, String userPassword);
 }

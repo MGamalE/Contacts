@@ -1,7 +1,10 @@
 package com.example.contacts.domain.usecase;
 
+import android.util.Log;
+
 import com.example.contacts.domain.repository.FileIORepository;
 import com.example.contacts.domain.repository.FileIORepositoryImpl;
+import com.example.contacts.entity.login.LoginValidation;
 
 import java.io.IOException;
 
@@ -44,5 +47,24 @@ public class FileIOUseCaseImpl implements FileIOUseCase {
     @Override
     public String retrieveUserPassword() {
         return repository.retrieveUserPasswordToPreference();
+    }
+
+    @Override
+    public LoginValidation requestLogin(String userId, String userPassword) {
+        return validateLoginCredentials(userId, userPassword);
+    }
+
+    private LoginValidation validateLoginCredentials(String userId, String userPassword) {
+        LoginValidation loginValidation = new LoginValidation();
+        if (userId.isEmpty()) {
+            loginValidation.setErrorUserId("User id required!");
+            loginValidation.setValid(false);
+        } else if (userPassword.isEmpty()) {
+            loginValidation.setErrorUserPassword("User password required!");
+            loginValidation.setValid(false);
+        } else {
+            loginValidation.setValid(true);
+        }
+        return loginValidation;
     }
 }
