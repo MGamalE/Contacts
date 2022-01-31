@@ -1,9 +1,11 @@
-package com.example.contacts;
+package com.example.contacts.presentation.feature.contactsmain;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class MainActivity extends AppCompatActivity {
+import com.example.contacts.R;
+
+public class ContactsMainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
