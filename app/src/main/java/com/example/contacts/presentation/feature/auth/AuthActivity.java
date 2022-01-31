@@ -1,47 +1,50 @@
 package com.example.contacts.presentation.feature.auth;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProvider;
 
 import android.os.Bundle;
 
 import com.example.contacts.R;
-import com.example.contacts.domain.gateway.persistence.SharedPreference;
-import com.example.contacts.domain.usecase.FileIOUseCase;
-import com.example.contacts.presentation.core.Constant;
-
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.Properties;
-
-import javax.inject.Inject;
 
 import dagger.hilt.android.AndroidEntryPoint;
 
 @AndroidEntryPoint
 public class AuthActivity extends AppCompatActivity {
 
-    @Inject
-    FileIOUseCase fileIOUseCase;
+   private AuthViewModel authViewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_auth);
 
-        //Load credentials
-        saveToSharedPreference();
+        initializeAuthViewModel();
+
+        requestLoadingUserId();
+
+        requestLoadingUserPassword();
     }
 
     /**
-     * Insert the file credentials to @MySharedPreference
+     * Construct {@AuthViewModel} class
      */
-    private void saveToSharedPreference() {
-        try {
-            fileIOUseCase.saveUserId();
-            fileIOUseCase.saveUserPassword();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+    private void initializeAuthViewModel() {
+        authViewModel = new ViewModelProvider(this).get(AuthViewModel.class);
+    }
+
+    /**
+     * Request user password
+     */
+    private void requestLoadingUserPassword() {
+        authViewModel.loadUserPasswordCredential();
+    }
+
+    /**
+     * Request user id
+     */
+    private void requestLoadingUserId() {
+        authViewModel.loadUserIdCredential();
     }
 
 }

@@ -7,7 +7,8 @@ import java.io.IOException;
 
 /**
  * This use case class to manipulate
- * the business roles between data sources gateway and presentation layer
+ * the business rules between data sources gateway
+ * {@FilIO},{@SharedPreference} and presentation layer {@ViewModel}
  */
 public class FileIOUseCaseImpl implements FileIOUseCase{
 
