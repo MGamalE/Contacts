@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-import com.example.contacts.domain.usecase.FileIOUseCase;
+import com.example.contacts.domain.usecase.fileio.FileIOUseCase;
 import com.example.contacts.entity.login.LoginValidation;
 
 import javax.inject.Inject;

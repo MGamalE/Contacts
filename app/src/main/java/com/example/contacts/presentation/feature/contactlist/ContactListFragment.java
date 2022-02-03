@@ -11,7 +11,9 @@ import androidx.fragment.app.Fragment;
 
 import com.example.contacts.databinding.FragmentContactListBinding;
 
+import dagger.hilt.android.AndroidEntryPoint;
 
+@AndroidEntryPoint
 public class ContactListFragment extends Fragment {
 
     private FragmentContactListBinding binding;
@@ -32,7 +34,6 @@ public class ContactListFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
     }
 
     @Override

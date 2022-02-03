@@ -2,7 +2,7 @@ package com.example.contacts.presentation.feature.auth;
 
 import androidx.lifecycle.ViewModel;
 
-import com.example.contacts.domain.usecase.FileIOUseCase;
+import com.example.contacts.domain.usecase.fileio.FileIOUseCase;
 
 import javax.inject.Inject;
 
