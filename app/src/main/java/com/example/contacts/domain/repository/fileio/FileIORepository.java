@@ -1,4 +1,4 @@
-package com.example.contacts.domain.repository;
+package com.example.contacts.domain.repository.fileio;
 
 import java.io.IOException;
 

@@ -1,12 +1,8 @@
-package com.example.contacts.domain.usecase;
+package com.example.contacts.domain.usecase.fileio;
 
-import android.util.Log;
-
-import com.example.contacts.domain.repository.FileIORepository;
-import com.example.contacts.domain.repository.FileIORepositoryImpl;
+import com.example.contacts.domain.repository.fileio.FileIORepository;
+import com.example.contacts.domain.repository.fileio.FileIORepositoryImpl;
 import com.example.contacts.entity.login.LoginValidation;
-
-import java.io.IOException;
 
 /**
  * This use case class to manipulate

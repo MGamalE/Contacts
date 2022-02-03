@@ -1,4 +1,4 @@
-package com.example.contacts.domain.repository;
+package com.example.contacts.domain.repository.fileio;
 
 import com.example.contacts.domain.gateway.persistence.FileIO;
 import com.example.contacts.domain.gateway.persistence.SharedPreference;

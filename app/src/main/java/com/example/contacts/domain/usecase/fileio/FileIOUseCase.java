@@ -1,4 +1,4 @@
-package com.example.contacts.domain.usecase;
+package com.example.contacts.domain.usecase.fileio;
 
 import com.example.contacts.entity.login.LoginValidation;
 
