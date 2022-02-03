@@ -6,10 +6,10 @@ import android.content.SharedPreferences;
 import com.example.contacts.domain.core.Constant;
 import com.example.contacts.domain.gateway.persistence.FileIO;
 import com.example.contacts.domain.gateway.persistence.SharedPreference;
-import com.example.contacts.domain.repository.FileIORepository;
-import com.example.contacts.domain.repository.FileIORepositoryImpl;
-import com.example.contacts.domain.usecase.FileIOUseCase;
-import com.example.contacts.domain.usecase.FileIOUseCaseImpl;
+import com.example.contacts.domain.repository.fileio.FileIORepository;
+import com.example.contacts.domain.repository.fileio.FileIORepositoryImpl;
+import com.example.contacts.domain.usecase.fileio.FileIOUseCase;
+import com.example.contacts.domain.usecase.fileio.FileIOUseCaseImpl;
 import com.example.contacts.presentation.core.App;
 
 import java.io.InputStream;
