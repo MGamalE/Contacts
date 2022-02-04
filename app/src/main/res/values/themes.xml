@@ -23,4 +23,9 @@
     <item name="colorPrimary">@color/item_main</item>
     </style>
 
+    <style name="ContactsMainFullScreen" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="android:statusBarColor">@color/item_main</item>
+    </style>
+
 </resources>

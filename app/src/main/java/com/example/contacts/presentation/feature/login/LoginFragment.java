@@ -157,7 +157,7 @@ public class LoginFragment extends Fragment {
              */
             if (loginValidation.isValid()) {
                 Navigation.findNavController(binding.getRoot()).navigate(R.id.action_loginFragment_to_contactsMainActivity2);
-                Toast.makeText(getActivity(), "Success", Toast.LENGTH_SHORT).show();
+                if (getActivity() != null) getActivity().finish();
             }
             /**
              * If the user id credential data is not valid, then do display error

@@ -7,4 +7,11 @@
     <string name="user_password_input_hint">User Password</string>
     <string name="user_id_input_hint">User ID</string>
     <string name="log_in">Log in</string>
+    <string name="error_generic">Something went wrong</string>
+    <string name="error_connection">Connection issue, try again</string>
+    <string name="error_permission">Forbidden, you do not have a permission</string>
+    <string name="error_not_found">Requested page not found</string>
+    <string name="error_server">Internal server error</string>
+    <string name="error_un_authorized">Authorization data is absent, invalid or expired</string>
+    <string name="contacts">Contacts</string>
 </resources>
