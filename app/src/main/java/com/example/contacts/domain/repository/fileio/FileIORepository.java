@@ -7,6 +7,10 @@ public interface FileIORepository {
 
     void saveUserPasswordToPreference() throws IOException;
 
+    void saveUserLoginId(String userId);
+
+    void saveUserLoginPassword(String userPassword);
+
     String retrieveUserIdToPreference();
 
     String retrieveUserPasswordToPreference();

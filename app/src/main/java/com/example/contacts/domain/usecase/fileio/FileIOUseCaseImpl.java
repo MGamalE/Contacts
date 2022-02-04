@@ -59,6 +59,8 @@ public class FileIOUseCaseImpl implements FileIOUseCase {
             loginValidation.setErrorUserPassword("User password required!");
             loginValidation.setValid(false);
         } else {
+            repository.saveUserLoginId(userId);
+            repository.saveUserLoginPassword(userPassword);
             loginValidation.setValid(true);
         }
         return loginValidation;

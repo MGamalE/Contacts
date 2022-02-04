@@ -34,6 +34,16 @@ public class FileIORepositoryImpl implements FileIORepository {
     }
 
     @Override
+    public void saveUserLoginId(String userId) {
+        sharedPreference.saveUserId(userId);
+    }
+
+    @Override
+    public void saveUserLoginPassword(String userPassword) {
+        sharedPreference.saveUserPassword(userPassword);
+    }
+
+    @Override
     public String retrieveUserIdToPreference() {
         return sharedPreference.getUserId();
     }
