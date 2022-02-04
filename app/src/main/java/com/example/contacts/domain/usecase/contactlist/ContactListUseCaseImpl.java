@@ -16,6 +16,6 @@ public class ContactListUseCaseImpl implements ContactListUseCase {
 
     @Override
     public Single<ContactListResponse> retrieveContactList(long page, long perPage) {
-        return repository.retrieveContactList(page,perPage);
+        return repository.retrieveContactList(page, perPage);
     }
 }

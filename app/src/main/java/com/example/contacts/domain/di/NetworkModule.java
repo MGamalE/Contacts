@@ -62,7 +62,7 @@ public abstract class NetworkModule {
             Request request = chain.request().newBuilder()
                     .addHeader("Accept", "application/json")
                     .addHeader(AUTHORIZATION,
-                    Credentials.basic(sharedPreference.getUserId(), sharedPreference.getUserPassword())).build();
+                            Credentials.basic(sharedPreference.getUserId(), sharedPreference.getUserPassword())).build();
             return chain.proceed(request);
         };
     }
@@ -82,4 +82,5 @@ public abstract class NetworkModule {
     public static ContactListUseCase provideContactListUseCase(ContactListRepositoryImpl repository) {
         return new ContactListUseCaseImpl(repository);
     }
+
 }
