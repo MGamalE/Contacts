@@ -75,6 +75,7 @@ private static void androidUI(dependencies){
     dependencies.implementation 'androidx.fragment:fragment-ktx:1.4.1'
     dependencies.implementation("androidx.navigation:navigation-fragment-ktx:2.4.0")
     dependencies.implementation("androidx.navigation:navigation-ui-ktx:2.4.0")
+    dependencies.implementation("io.coil-kt:coil:1.4.0")
 }
 
 private static void androidTesting(dependencies){
