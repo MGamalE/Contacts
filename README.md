@@ -6,7 +6,7 @@
 - [x] Allow loginned user to show a list of contacts
 - [x] Allow loginned user to show contact details
 
-## Version controle
+## Version control
 This project use `Git` as a source controle, and mimic a `Git flow` with branches strategy for each feature.
 
 ## Architecture 
