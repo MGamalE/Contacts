@@ -1,14 +1,193 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".presentation.feature.contactdetails.ContactDetailsFragment">
+    android:layout_height="match_parent">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-</FrameLayout>
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:id="@+id/SwipeRefreshLayout"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/img_contact_photo"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:scaleType="fitXY"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:src="@drawable/ic_launcher_background" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvContactName"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="16dp"
+                android:fontFamily="@font/proximabold"
+                android:textColor="@color/item_title_header"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/img_contact_photo"
+                app:layout_constraintTop_toTopOf="@+id/img_contact_photo"
+                tools:text="Judith Williams" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvContactTitle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginEnd="16dp"
+                android:fontFamily="@font/proximaregular"
+                android:textColor="@color/item_hint"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/img_contact_photo"
+                app:layout_constraintTop_toBottomOf="@+id/tvContactName"
+                tools:text="Judith Williams" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/imgCompany"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                app:layout_constraintStart_toStartOf="@+id/img_contact_photo"
+                app:layout_constraintTop_toBottomOf="@+id/img_contact_photo"
+                app:srcCompat="@drawable/ic_work" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvContactCompany"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="16dp"
+                android:fontFamily="@font/proximaregular"
+                android:textColor="@color/item_hint"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="@+id/imgCompany"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/imgCompany"
+                app:layout_constraintTop_toTopOf="@+id/imgCompany"
+                tools:text="Company" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/imgPhone"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                app:layout_constraintStart_toStartOf="@+id/img_contact_photo"
+                app:layout_constraintTop_toBottomOf="@+id/imgCompany"
+                app:srcCompat="@drawable/ic_phone" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvContactPhone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="16dp"
+                android:fontFamily="@font/proximaregular"
+                android:textColor="@color/item_title_header"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="@+id/imgPhone"
+                app:layout_constraintStart_toEndOf="@+id/imgPhone"
+                app:layout_constraintTop_toTopOf="@+id/imgPhone"
+                tools:text="+1 555 555 5555" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvContactPhoneType"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginEnd="16dp"
+                android:fontFamily="@font/proximalight"
+                android:textColor="@color/item_hint"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="@+id/tvContactPhone"
+                app:layout_constraintStart_toEndOf="@+id/tvContactPhone"
+                app:layout_constraintTop_toTopOf="@+id/tvContactPhone"
+                tools:text="work" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/imgNote"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginEnd="16dp"
+                app:layout_constraintBottom_toBottomOf="@id/imgPhone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/imgPhone"
+                app:srcCompat="@drawable/ic_note" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/imgAddress"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginTop="16sp"
+                app:layout_constraintStart_toStartOf="@+id/imgPhone"
+                app:layout_constraintTop_toBottomOf="@+id/imgPhone"
+                app:srcCompat="@drawable/ic_address_contact_details" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvContactAddress"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="16dp"
+                android:fontFamily="@font/proximaregular"
+                android:textColor="@color/item_hint"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="@+id/imgAddress"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/imgAddress"
+                app:layout_constraintTop_toTopOf="@+id/imgAddress"
+                tools:text="Address" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/imgMail"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginTop="2dp"
+                app:layout_constraintStart_toStartOf="@+id/imgAddress"
+                app:layout_constraintTop_toBottomOf="@+id/imgAddress"
+                app:srcCompat="@drawable/ic_mail" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvContactMail"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="16dp"
+                android:fontFamily="@font/proximaregular"
+                android:textColor="@color/item_hint"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="@+id/imgMail"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/imgMail"
+                app:layout_constraintTop_toTopOf="@+id/imgMail"
+                tools:text="judith@qa.com" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
