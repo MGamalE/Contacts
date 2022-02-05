@@ -18,6 +18,7 @@ import androidx.navigation.Navigation;
 
 import com.example.contacts.R;
 import com.example.contacts.databinding.FragmentContactListBinding;
+import com.example.contacts.databinding.ToolbarBinding;
 import com.example.contacts.presentation.core.ErrorType;
 import com.google.android.material.snackbar.Snackbar;
 
@@ -29,6 +30,7 @@ import dagger.hilt.android.AndroidEntryPoint;
 @AndroidEntryPoint
 public class ContactListFragment extends Fragment {
 
+    private ToolbarBinding toolbarBinding = null;
     private FragmentContactListBinding binding;
 
     private ContactListViewModel contactListViewModel;
@@ -52,6 +54,8 @@ public class ContactListFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        initializeToolbar();
+
         fireSwipeRefreshing();
 
         initializeContactListViewModel();
@@ -68,6 +72,14 @@ public class ContactListFragment extends Fragment {
 
         initializeContactClickedObserver();
 
+    }
+
+    /**
+     * Pass toolbar title of contacts screen
+     */
+    private void initializeToolbar() {
+        toolbarBinding = binding.toolbar;
+        toolbarBinding.topAppBar.setTitle(R.string.contacts);
     }
 
     /**
@@ -140,7 +152,7 @@ public class ContactListFragment extends Fragment {
         contactListViewModel.getContactClicked().observe(getViewLifecycleOwner(), response -> {
             //TODO: Navigate to contact details screen
             if (response.getIsClicked()) {
-                NavDirections action = ContactListFragmentDirections.actionContactListFragmentToContactDetailsFragment();
+                NavDirections action = ContactListFragmentDirections.actionContactListFragmentToContactDetailsFragment(response.getId());
                 Navigation.findNavController(binding.getRoot()).navigate(action);
             }
         });
@@ -187,6 +199,7 @@ public class ContactListFragment extends Fragment {
     public void onDestroyView() {
         contactListViewModel.release();
         binding = null;
+        toolbarBinding = null;
         super.onDestroyView();
     }
 }
