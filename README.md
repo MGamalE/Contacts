@@ -49,6 +49,7 @@ expanded option with each item.
 ### Contact Details
 This feature display an extra details data for each contact.
 
+### Demo
 
 | Splash | Login | Login + Error | Contacts 
 | ------ | ------ | ------| ----- 
