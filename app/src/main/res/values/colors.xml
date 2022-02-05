@@ -14,10 +14,11 @@
 
     <color name="item_white">#F0F0F0</color>
     <color name="item_white_off">#D6D6D6</color>
-    <color name="item_red">#DD585B</color>
+    <color name="item_red">#E55841</color>
     <color name="item_hint">#808080</color>
     <color name="item_ripple">#808080</color>
 
     <color name="item_title_header">#2F404D</color>
     <color name="item_title_sub_header">#020E30</color>
+    <color name="item_icon">#41AEEF</color>
 </resources>
