@@ -7,7 +7,7 @@ import kotlinx.coroutines.flow.Flow
 class ContactDetailsRepositoryImpl(private val server: ContactDetailsAPI) :
     ContactDetailsRepository {
 
-    override suspend fun getContactDetails(contactId: String): Flow<ContactDetailsResponse> =
+    override suspend fun getContactDetails(contactId: String): ContactDetailsResponse =
         server.getContactDetails(contactId)
 
 }

@@ -3,6 +3,9 @@ package com.example.contacts.domain.di.kotlin
 import com.example.contacts.domain.gateway.remote.ContactDetailsAPI
 import com.example.contacts.domain.repository.contactdetails.ContactDetailsRepository
 import com.example.contacts.domain.repository.contactdetails.ContactDetailsRepositoryImpl
+import com.example.contacts.domain.usecase.contactdetails.ContactDetailsUseCase
+import com.example.contacts.domain.usecase.contactdetails.ContactDetailsUseCaseImpl
+import com.example.contacts.domain.usecase.contactlist.ContactListUseCaseImpl
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -23,4 +26,9 @@ object KNetworkModule {
     @Provides
     fun provideContactDetailsRepository(server: ContactDetailsAPI): ContactDetailsRepository =
         ContactDetailsRepositoryImpl(server)
+
+    @Singleton
+    @Provides
+    fun provideContactDetailsUseCase(repository: ContactDetailsRepository): ContactDetailsUseCase =
+        ContactDetailsUseCaseImpl(repository)
 }

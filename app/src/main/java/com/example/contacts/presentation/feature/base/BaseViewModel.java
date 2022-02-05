@@ -2,14 +2,10 @@ package com.example.contacts.presentation.feature.base;
 
 import androidx.lifecycle.ViewModel;
 
-import com.example.contacts.entity.baseresponse.BaseResponse;
 import com.example.contacts.presentation.core.ErrorType;
-import com.google.gson.Gson;
-import com.google.gson.TypeAdapter;
 
 import java.io.IOException;
 
-import okhttp3.ResponseBody;
 import retrofit2.HttpException;
 import retrofit2.Response;
 

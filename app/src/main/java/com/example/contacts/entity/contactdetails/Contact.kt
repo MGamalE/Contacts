@@ -17,4 +17,6 @@ data class Contact(
     val phones:List<ContactPhones>?=null,
     @SerializedName("address_list")
     val addresses:List<ContactAddress>?=null,
+    @SerializedName("emails")
+    val emails:List<ContactEmails>?=null,
 )

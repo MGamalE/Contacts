@@ -7,5 +7,5 @@ import retrofit2.http.Path
 
 interface ContactDetailsAPI {
     @GET("contacts/{contact_id}")
-    suspend fun getContactDetails(@Path("contact_id") contactId: String): Flow<ContactDetailsResponse>
+    suspend fun getContactDetails(@Path("contact_id") contactId: String): ContactDetailsResponse
 }
