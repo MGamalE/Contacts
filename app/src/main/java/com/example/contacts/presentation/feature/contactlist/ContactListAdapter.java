@@ -11,6 +11,8 @@ import android.widget.TextView;
 import androidx.appcompat.widget.AppCompatImageView;
 
 import com.example.contacts.R;
+import com.example.contacts.databinding.ItemContactListContentBinding;
+import com.example.contacts.databinding.ItemContactListHeaderBinding;
 
 import java.util.HashMap;
 import java.util.List;
@@ -54,17 +56,16 @@ public class ContactListAdapter extends BaseExpandableListAdapter {
     }
 
     @Override
-    public View getChildView(int groupPosition, final int childPosition,
-                             boolean isLastChild, View convertView, ViewGroup parent) {
+    public View getChildView(int groupPosition, final int childPosition, boolean isLastChild, View convertView, ViewGroup parent) {
         final String address = (String) getChild(groupPosition, childPosition);
-        if (convertView == null) {
-            LayoutInflater layoutInflater = (LayoutInflater) this.context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            convertView = layoutInflater.inflate(R.layout.item_contact_list_content, null);
-        }
-        TextView addressName = (TextView) convertView.findViewById(R.id.tvContactBody);
-        addressName.setText(address);
-        convertView.setOnClickListener(v -> contactListViewModel.contactListItemClicked(groupPosition));
-        return convertView;
+
+        LayoutInflater layoutInflater = (LayoutInflater) this.context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        ItemContactListContentBinding binding = ItemContactListContentBinding.inflate(layoutInflater);
+
+        binding.tvContactBody.setText(address);
+        binding.getRoot().setOnClickListener(v -> contactListViewModel.contactListItemClicked(groupPosition));
+
+        return binding.getRoot();
     }
 
     @Override
@@ -90,21 +91,14 @@ public class ContactListAdapter extends BaseExpandableListAdapter {
     @Override
     public View getGroupView(int listPosition, boolean isExpanded, View convertView, ViewGroup parent) {
         String name = (String) getGroup(listPosition);
-        if (convertView == null) {
-            LayoutInflater layoutInflater = (LayoutInflater) this.context.
-                    getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            convertView = layoutInflater.inflate(R.layout.item_contact_list_header, null);
-        }
-        TextView contactFirstName = (TextView) convertView.findViewById(R.id.tvContactName);
-        contactFirstName.setText(name);
 
-        AppCompatImageView indicator = (AppCompatImageView) convertView.findViewById(R.id.imgIndicator);
-        if (isExpanded) {
-            indicator.setImageResource(R.drawable.ic_arrow_up);
-        } else {
-            indicator.setImageResource(R.drawable.ic_arrow_down);
-        }
-        return convertView;
+        LayoutInflater layoutInflater = (LayoutInflater) this.context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        ItemContactListHeaderBinding binding = ItemContactListHeaderBinding.inflate(layoutInflater);
+
+        binding.tvContactName.setText(name);
+        binding.imgIndicator.setImageResource(isExpanded ? R.drawable.ic_arrow_up : R.drawable.ic_arrow_down);
+
+        return binding.getRoot();
     }
 
     @Override
