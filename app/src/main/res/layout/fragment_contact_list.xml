@@ -8,8 +8,8 @@
     tools:context=".presentation.feature.contactlist.ContactListFragment">
 
     <include
-        layout="@layout/toolbar"
         android:id="@+id/toolbar"
+        layout="@layout/toolbar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -31,14 +31,14 @@
                 android:id="@+id/exList"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
                 android:childDivider="@android:color/white"
                 android:divider="@android:color/darker_gray"
                 android:dividerHeight="0.1dp"
-                android:groupIndicator="@null" />
+                android:groupIndicator="@null"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

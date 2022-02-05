@@ -65,13 +65,13 @@ public abstract class AppModule {
 
     @Singleton
     @Provides
-    public static FileIO provideFileIO(InputStream inputStream,Properties properties) {
-        return new FileIO(inputStream,properties);
+    public static FileIO provideFileIO(InputStream inputStream, Properties properties) {
+        return new FileIO(inputStream, properties);
     }
 
     @Provides
     public static FileIORepository provideFileIORepository(FileIO fileIO, SharedPreference sharedPreference) {
-        return new FileIORepositoryImpl(fileIO,sharedPreference);
+        return new FileIORepositoryImpl(fileIO, sharedPreference);
     }
 
     @Provides

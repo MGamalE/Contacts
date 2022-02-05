@@ -5,7 +5,6 @@ import com.example.contacts.domain.repository.contactdetails.ContactDetailsRepos
 import com.example.contacts.domain.repository.contactdetails.ContactDetailsRepositoryImpl
 import com.example.contacts.domain.usecase.contactdetails.ContactDetailsUseCase
 import com.example.contacts.domain.usecase.contactdetails.ContactDetailsUseCaseImpl
-import com.example.contacts.domain.usecase.contactlist.ContactListUseCaseImpl
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

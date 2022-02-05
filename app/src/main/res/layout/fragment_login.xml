@@ -23,8 +23,8 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/proximaregular"
         android:textColor="@color/item_red"
-        android:textStyle="bold"
         android:textSize="12sp"
+        android:textStyle="bold"
         android:visibility="gone"
         app:layout_constraintBottom_toTopOf="@id/userVg"
         app:layout_constraintStart_toStartOf="@+id/userVg"
@@ -89,8 +89,8 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/proximaregular"
         android:textColor="@color/item_red"
-        android:textStyle="bold"
         android:textSize="12sp"
+        android:textStyle="bold"
         android:visibility="gone"
         app:layout_constraintBottom_toTopOf="@id/passwordVg"
         app:layout_constraintStart_toStartOf="@+id/passwordVg"
@@ -150,6 +150,7 @@
     </com.google.android.material.card.MaterialCardView>
 
     <com.google.android.material.button.MaterialButton
+        android:id="@+id/btLogin"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
@@ -165,10 +166,9 @@
         android:textStyle="bold"
         android:theme="@style/Theme.MaterialComponents.Light"
         app:cornerRadius="4dp"
-        android:id="@+id/btLogin"
-        app:rippleColor="@color/item_ripple"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/passwordVg" />
+        app:layout_constraintTop_toBottomOf="@+id/passwordVg"
+        app:rippleColor="@color/item_ripple" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

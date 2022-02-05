@@ -6,8 +6,10 @@ import com.example.contacts.entity.contactdetails.ContactDetailsUiState
 import com.example.contacts.presentation.feature.base.BaseViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.InternalCoroutinesApi
-import kotlinx.coroutines.flow.*
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -22,11 +24,12 @@ class ContactDetailsViewModel @Inject constructor(private val useCase: ContactDe
         _uiState.update { ContactDetailsUiState(isLoading = true) }
         viewModelScope.launch(Dispatchers.IO) {
             try {
-                useCase.getContactDetails(contactId).collect {
-                        response ->
-                    _uiState.update { ContactDetailsUiState(
-                        contactData = response,
-                        isLoading = false)
+                useCase.getContactDetails(contactId).collect { response ->
+                    _uiState.update {
+                        ContactDetailsUiState(
+                            contactData = response,
+                            isLoading = false
+                        )
                     }
                 }
 

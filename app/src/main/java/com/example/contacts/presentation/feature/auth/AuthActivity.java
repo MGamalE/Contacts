@@ -1,9 +1,9 @@
 package com.example.contacts.presentation.feature.auth;
 
+import android.os.Bundle;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
-
-import android.os.Bundle;
 
 import com.example.contacts.R;
 
@@ -12,7 +12,7 @@ import dagger.hilt.android.AndroidEntryPoint;
 @AndroidEntryPoint
 public class AuthActivity extends AppCompatActivity {
 
-   private AuthViewModel authViewModel;
+    private AuthViewModel authViewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

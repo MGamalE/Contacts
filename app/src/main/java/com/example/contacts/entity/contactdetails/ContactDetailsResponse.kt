@@ -8,5 +8,5 @@ data class ContactDetailsResponse(
     @SerializedName("message")
     val message: String? = null,
     @SerializedName("data")
-    val contactDetailsData:ContactDetailsData
+    val contactDetailsData: ContactDetailsData
 )

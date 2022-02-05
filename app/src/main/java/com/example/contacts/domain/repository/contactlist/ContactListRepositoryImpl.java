@@ -7,17 +7,17 @@ import javax.inject.Inject;
 
 import io.reactivex.Single;
 
-public class ContactListRepositoryImpl implements ContactListRepository{
+public class ContactListRepositoryImpl implements ContactListRepository {
 
     private ContactAPI server;
 
     @Inject
     public ContactListRepositoryImpl(ContactAPI contactAPI) {
-        this.server=contactAPI;
+        this.server = contactAPI;
     }
 
     @Override
     public Single<ContactListResponse> retrieveContactList(long page, long perPage) {
-        return server.retrieveContactList(page,perPage);
+        return server.retrieveContactList(page, perPage);
     }
 }

@@ -15,20 +15,20 @@ public class LoginValidation {
         return errorUserId;
     }
 
-    public String getErrorUserPassword() {
-        return errorUserPassword;
-    }
-
-    public boolean isValid() {
-        return isValid;
-    }
-
     public void setErrorUserId(String errorUserId) {
         this.errorUserId = errorUserId;
     }
 
+    public String getErrorUserPassword() {
+        return errorUserPassword;
+    }
+
     public void setErrorUserPassword(String errorUserPassword) {
         this.errorUserPassword = errorUserPassword;
+    }
+
+    public boolean isValid() {
+        return isValid;
     }
 
     public void setValid(boolean valid) {

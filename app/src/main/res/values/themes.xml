@@ -20,7 +20,7 @@
     </style>
 
     <style name="ThemeOverlay.App.TextInputLayout" parent="">
-    <item name="colorPrimary">@color/item_main</item>
+        <item name="colorPrimary">@color/item_main</item>
     </style>
 
     <style name="ContactsMainFullScreen" parent="Theme.MaterialComponents.Light.NoActionBar">

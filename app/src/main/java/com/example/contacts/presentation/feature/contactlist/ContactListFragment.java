@@ -1,10 +1,9 @@
 package com.example.contacts.presentation.feature.contactlist;
 
-import static com.example.contacts.presentation.core.Constant.PAGE_SIZE;
 import static com.example.contacts.presentation.core.Constant.FIRST_PAGE;
+import static com.example.contacts.presentation.core.Constant.PAGE_SIZE;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;

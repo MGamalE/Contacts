@@ -135,7 +135,7 @@ public class ContactListViewModel extends BaseViewModel {
 
     public void release() {
         _contactList = new SingleLiveEvent<>();
-        _contact.postValue(new ContactClicked("",false));
+        _contact.postValue(new ContactClicked("", false));
     }
 
     @Override
