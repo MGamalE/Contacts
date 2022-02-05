@@ -18,5 +18,9 @@
         android:id="@+id/contactDetailsFragment"
         android:name="com.example.contacts.presentation.feature.contactdetails.ContactDetailsFragment"
         android:label="fragment_contact_details"
-        tools:layout="@layout/fragment_contact_details" />
+        tools:layout="@layout/fragment_contact_details" >
+        <argument
+            android:name="contact_id"
+            app:argType="string" />
+    </fragment>
 </navigation>
