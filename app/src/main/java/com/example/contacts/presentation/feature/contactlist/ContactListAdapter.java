@@ -63,7 +63,7 @@ public class ContactListAdapter extends BaseExpandableListAdapter {
         ItemContactListContentBinding binding = ItemContactListContentBinding.inflate(layoutInflater);
 
         binding.tvContactBody.setText(address);
-        binding.getRoot().setOnClickListener(v -> contactListViewModel.contactListItemClicked(groupPosition));
+        binding.getRoot().setOnClickListener(v -> contactListViewModel.contactListItemClicked(groupPosition,true));
 
         return binding.getRoot();
     }

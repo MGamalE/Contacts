@@ -1,19 +1,20 @@
 package com.example.contacts.presentation.feature.contactlist;
 
-import static android.nfc.tech.MifareUltralight.PAGE_SIZE;
-
+import static com.example.contacts.presentation.core.Constant.PAGE_SIZE;
 import static com.example.contacts.presentation.core.Constant.FIRST_PAGE;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.NavDirections;
+import androidx.navigation.Navigation;
 
 import com.example.contacts.R;
 import com.example.contacts.databinding.FragmentContactListBinding;
@@ -129,7 +130,7 @@ public class ContactListFragment extends Fragment {
      * Listen to retrieved success data response
      */
     private void initializeSuccessRequestObserver() {
-        contactListViewModel.stateSuccess().observe(getViewLifecycleOwner(), response -> contactsAdapter.updateAdapter(response, new ArrayList<>(response.keySet())));
+        contactListViewModel.stateSuccess().observe(getViewLifecycleOwner(), response -> contactsAdapter.updateAdapter(response, new ArrayList<String>(response.keySet())));
     }
 
     /**
@@ -137,7 +138,11 @@ public class ContactListFragment extends Fragment {
      */
     private void initializeContactClickedObserver() {
         contactListViewModel.getContactClicked().observe(getViewLifecycleOwner(), response -> {
-           //TODO: Navigate to contact details screen
+            //TODO: Navigate to contact details screen
+            if (response.getIsClicked()) {
+                NavDirections action = ContactListFragmentDirections.actionContactListFragmentToContactDetailsFragment();
+                Navigation.findNavController(binding.getRoot()).navigate(action);
+            }
         });
     }
 
@@ -180,7 +185,8 @@ public class ContactListFragment extends Fragment {
 
     @Override
     public void onDestroyView() {
-        super.onDestroyView();
+        contactListViewModel.release();
         binding = null;
+        super.onDestroyView();
     }
 }

@@ -1,29 +1,18 @@
 package com.example.contacts.presentation.feature.contactlist;
 
 import android.annotation.SuppressLint;
-import android.util.Log;
-
-import androidx.lifecycle.LiveData;
-import androidx.lifecycle.MutableLiveData;
-import androidx.lifecycle.ViewModel;
 
 import com.example.contacts.domain.usecase.contactlist.ContactListUseCase;
-import com.example.contacts.entity.baseresponse.BaseResponse;
-import com.example.contacts.entity.contactlist.ContactList;
+import com.example.contacts.entity.contactlist.ContactClicked;
 import com.example.contacts.entity.contactlist.ContactListContactItem;
-import com.example.contacts.entity.contactlist.ContactListData;
 import com.example.contacts.entity.contactlist.ContactListResponse;
-import com.example.contacts.entity.login.LoginValidation;
 import com.example.contacts.presentation.core.ErrorType;
+import com.example.contacts.presentation.core.SingleLiveEvent;
 import com.example.contacts.presentation.feature.base.BaseViewModel;
-import com.google.gson.Gson;
-import com.google.gson.TypeAdapter;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import javax.inject.Inject;
 
@@ -31,8 +20,6 @@ import dagger.hilt.android.lifecycle.HiltViewModel;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.schedulers.Schedulers;
-import okhttp3.ResponseBody;
-import retrofit2.HttpException;
 
 @HiltViewModel
 public class ContactListViewModel extends BaseViewModel {
@@ -40,37 +27,37 @@ public class ContactListViewModel extends BaseViewModel {
     @Inject
     ContactListUseCase useCase;
 
-    private MutableLiveData<Boolean> _loading;
+    private SingleLiveEvent<Boolean> _loading;
 
-    private MutableLiveData<ErrorType> _error;
+    private SingleLiveEvent<ErrorType> _error;
 
-    private MutableLiveData<HashMap<String, List<String>>> _contactList;
+    private SingleLiveEvent<HashMap<String, List<String>>> _contactList;
 
-    private MutableLiveData<List<ContactListContactItem>> _contactItem;
+    private SingleLiveEvent<List<ContactListContactItem>> _contactItem;
 
-    private MutableLiveData<ContactListContactItem> _contact;
+    private SingleLiveEvent<ContactClicked> _contact;
 
     private CompositeDisposable disposable;
 
     @Inject
     public ContactListViewModel() {
-        _loading = new MutableLiveData<>();
-        _error = new MutableLiveData<>();
-        _contactItem = new MutableLiveData<>();
-        _contact = new MutableLiveData<>();
-        _contactList = new MutableLiveData<>();
+        _loading = new SingleLiveEvent<>();
+        _error = new SingleLiveEvent<>();
+        _contactItem = new SingleLiveEvent<>();
+        _contact = new SingleLiveEvent<>();
+        _contactList = new SingleLiveEvent<>();
         disposable = new CompositeDisposable();
     }
 
-    public LiveData<Boolean> stateLoading() {
+    public SingleLiveEvent<Boolean> stateLoading() {
         return _loading;
     }
 
-    public LiveData<ErrorType> stateError() {
+    public SingleLiveEvent<ErrorType> stateError() {
         return _error;
     }
 
-    public LiveData<HashMap<String, List<String>>> stateSuccess() {
+    public SingleLiveEvent<HashMap<String, List<String>>> stateSuccess() {
         return _contactList;
     }
 
@@ -131,18 +118,24 @@ public class ContactListViewModel extends BaseViewModel {
         _error.postValue(parseError(error));
     }
 
-    public void contactListItemClicked(int position) {
-        passContactItem(position);
+    public void contactListItemClicked(int position, Boolean clicked) {
+        passContactItem(position, clicked);
     }
 
-    private void passContactItem(int position) {
+    private void passContactItem(int position, Boolean clicked) {
         if (_contactItem.getValue() != null) {
-            _contact.postValue(_contactItem.getValue().get(position));
+            _contact.postValue(new ContactClicked(_contactItem.getValue().get(position).getId(),
+                    clicked));
         }
     }
 
-    public LiveData<ContactListContactItem> getContactClicked() {
+    public SingleLiveEvent<ContactClicked> getContactClicked() {
         return _contact;
+    }
+
+    public void release() {
+        _contactList = new SingleLiveEvent<>();
+        _contact.postValue(new ContactClicked("",false));
     }
 
     @Override
