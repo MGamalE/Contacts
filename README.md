@@ -34,6 +34,7 @@ This app follows [Uncle-Bob Clean Architecture](https://blog.cleancoder.com/uncl
 - > **Dagger-Hilt** Provides a standard way to apply dependecy injection
 - > **RxJava** As multi-threading approach for composing asynchronous
 - > **Koltin Coroutine** As light weigh threading technique  
+- > **Koltin Flow** To recieve live updates of data
 
 ## App Screens
 The app ui get inspired by [OnePageCRM](https://play.google.com/store/apps/details?id=com.onepagecrm&hl=en&gl=US).
