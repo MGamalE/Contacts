@@ -28,9 +28,10 @@ This app follows [Uncle-Bob Clean Architecture](https://blog.cleancoder.com/uncl
 - > **Navigation**  Allow user to navigate between app's destinations 
 - > **Material Design** Apply material design guide on app ui
 - > **Coil** To load prefered images to user
+- > **View Binding** Allow interact with XML layout via generated binding class
 - > **Retrofit** As http client to connect via web services
 - > **OkHttp** To manage http request headers
-- > **ViewMode** To store and manage ui related data
+- > **ViewModel** To store and manage ui related data
 - > **Dagger-Hilt** Provides a standard way to apply dependecy injection
 - > **RxJava** As multi-threading approach for composing asynchronous
 - > **Koltin Coroutine** As light weigh threading technique  
