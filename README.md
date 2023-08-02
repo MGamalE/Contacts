@@ -2,17 +2,17 @@
 :tada: This app demonstrates how to consume a list of remote contacts.
 
 ## Features
-- [x] Allow user to login with id and token
-- [x] Allow loginned user to show a list of contacts
-- [x] Allow loginned user to show contact details
+- [x] Allow user to log in with id and token
+- [x] Allow logged users to show a list of contacts
+- [x] Allow logged users to show contact details
 
 ## Version control
 This project use `Git` as a source control, and mimic a `Git flow` with branches strategy for each feature.
 
 ## Architecture 
-Contacts app define an architecture that allows the app to scale, increases the app's robustness.
+The contacts app defines an architecture that allows the app to scale and increases the app's robustness.
 
-**Seperation of concern** is the core design for contacts archiecture, that applied within three layers
+**Seperation of concern** is the core design for contacts architecture, that applied within three layers
 
 > **Presenation Layer**  Contains only ui logic and operating system interactions. 
 
@@ -21,35 +21,35 @@ Contacts app define an architecture that allows the app to scale, increases the 
 > **Entity Layer**  Contains app data classes.
 
 This app follows [Uncle-Bob Clean Architecture](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html) ,
-[Android-Docs Architecure Guide](https://developer.android.com/jetpack/guide) for project architecure and MVVM as UI architecture
+[Android-Docs Architecure Guide](https://developer.android.com/jetpack/guide) for project architecture and MVVM as UI architecture
 
 ## Tech Stack
 - > **Language**  Java,Kotlin
-- > **Navigation**  Allow user to navigate between app's destinations 
-- > **Material Design** Apply material design guide on app ui
-- > **Coil** To load prefered images to user
-- > **View Binding** Allow interact with XML layout via generated binding class
-- > **Retrofit** As http client to connect via web services
-- > **OkHttp** To manage http request headers
-- > **ViewModel** To store and manage ui related data
-- > **Dagger-Hilt** Provides a standard way to apply dependecy injection
-- > **RxJava** As multi-threading approach for composing asynchronous
+- > **Navigation**  Allow user to navigate between the app's destinations 
+- > **Material Design** Apply the material design guide on app UI
+- > **Coil** To load preferred images to the user
+- > **View Binding** Allow interaction with XML layout via generated binding class
+- > **Retrofit** As HTTP client to connect via web services
+- > **OkHttp** To manage HTTP request headers
+- > **ViewModel** To store and manage ui-related data
+- > **Dagger-Hilt** Provides a standard way to apply dependency injection
+- > **RxJava** As a multi-threading approach for composing asynchronous
 - > **Koltin Coroutine** As light weigh threading technique  
-- > **Koltin Flow** To recieve live updates of data
+- > **Koltin Flow** To receive live updates on data
 
 ## App Screens
-The app ui get inspired by [OnePageCRM](https://play.google.com/store/apps/details?id=com.onepagecrm&hl=en&gl=US).
+The app ui gets inspired by [OnePageCRM](https://play.google.com/store/apps/details?id=com.onepagecrm&hl=en&gl=US).
 
 ### Login
-This feature allow to user to login via `ID` and `API TOKEN`, which you can get from [OnePageCRM API](https://app.onepagecrm.com/app/api). The credentials
- data store to `properties` file, as a more secure access layer between sensitive keys and public access.
+This feature allows to users to log in via `ID` and `API TOKEN`, which you can get from [OnePageCRM API](https://app.onepagecrm.com/app/api). The credentials
+ data is stored in the `properties` file, as a more secure access layer between sensitive keys and public access.
  
 ### Contact list
-This feature display a list of contacts consumed from [OnePageCRM Contacts](https://developer.onepagecrm.com/api/#/Contacts), with enabling 
+This feature displays a list of contacts consumed from [OnePageCRM Contacts](https://developer.onepagecrm.com/api/#/Contacts), enabling 
 expanded option with each item.
 
 ### Contact Details
-This feature display an extra details data for each contact.
+This feature displays extra details data for each contact.
 
 ### Demo
 
